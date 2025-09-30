@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 1</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #84fab0, #8fd3f4);
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .card {
+      display: inline-block;
+      background: #fff;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+    .chapter-img {
+      width: 100%;
+      max-width: 400px;
+      height: 250px;
+      object-fit: cover; /* ✅ image pura fit karega box me */
+      margin-top: 10px;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      display: none;
+    }
+    #animesText {
+      margin-top: 15px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #444;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>📖 Chapter 1</h1>
+  <div class="card">
+    <!-- Pehle sirf Add Image option dikhega -->
+    <div id="uploadBox">
+      <input type="file" id="upload" accept="image/*">
+      <button onclick="saveImage()">Add Image</button>
+    </div>
+    <!-- Uploaded Image -->
+    <img id="chapterImg" class="chapter-img" src="" alt="Uploaded Image" onclick="openAnimePage()">
+    <div id="animesText">Animes</div>
+  </div>
+
+  <script>
+    function saveImage(){
+      const fileInput = document.getElementById('upload');
+      const file = fileInput.files[0];
+      if(file){
+        const reader = new FileReader();
+        reader.onload = function(e){
+          localStorage.setItem('chapterImage', e.target.result);
+          showImage(e.target.result);
+        }
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function showImage(dataUrl){
+      const img = document.getElementById('chapterImg');
+      img.src = dataUrl;
+      img.style.display = 'block';
+      document.getElementById('animesText').style.display = 'block';
+      document.getElementById('uploadBox').style.display = 'none'; // ✅ add option hat gaya
+    }
+
+    // Page reload pe check kare
+    window.onload = function(){
+      const dataUrl = localStorage.getItem('chapterImage');
+      if(dataUrl){
+        showImage(dataUrl);
+      }
+    }
+
+    function openAnimePage(){
+      window.location.href = "anime.html";
+    }
+  </script>
+</body>
+</html>
