@@ -7,99 +7,59 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(120deg, #ffecd2, #fcb69f);
+      background: linear-gradient(120deg, #fbc2eb, #a6c1ee);
       margin: 0;
       padding: 20px;
-      text-align: center;
     }
     h1 {
-      color: #333;
-      margin-bottom: 20px;
+      text-align: center;
+      color: #222;
     }
     .chapter {
       margin: 20px auto;
       padding: 15px;
-      border: 2px solid #444;
-      border-radius: 12px;
-      background: #fff;
-      width: 90%;
       max-width: 600px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+    .chapter h2 {
+      margin: 0 0 10px;
+      color: #444;
     }
     video {
       width: 100%;
-      border-radius: 12px;
-      margin-top: 10px;
+      border-radius: 10px;
+      margin-bottom: 10px;
     }
     .info {
-      margin-top: 10px;
-      font-size: 14px;
       color: #555;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
   <h1>📺 Naruto Anime Chapters</h1>
+  <div id="chapters"></div>
 
-  <div class="chapter">
-    <h2>Chapter 1</h2>
-    <video controls src="videos/chapter1.mp4"></video>
-    <div class="info">This is Chapter 1 of Naruto.</div>
-  </div>
+  <script>
+    // yahan apne total videos ki ginti likho
+    const totalVideos = 10; // agar 50 hain to 50 likh dena
 
-  <div class="chapter">
-    <h2>Chapter 2</h2>
-    <video controls src="videos/chapter2.mp4"></video>
-    <div class="info">This is Chapter 2 of Naruto.</div>
-  </div>
+    const chaptersDiv = document.getElementById('chapters');
 
-  <div class="chapter">
-    <h2>Chapter 3</h2>
-    <video controls src="videos/chapter3.mp4"></video>
-    <div class="info">This is Chapter 3 of Naruto.</div>
-  </div>
+    for (let i = 1; i <= totalVideos; i++) {
+      const chapter = document.createElement('div');
+      chapter.className = 'chapter';
 
-  <div class="chapter">
-    <h2>Chapter 4</h2>
-    <video controls src="videos/chapter4.mp4"></video>
-    <div class="info">This is Chapter 4 of Naruto.</div>
-  </div>
+      chapter.innerHTML = `
+        <h2>Chapter ${i}</h2>
+        <video controls src="videos/chapter${i}.mp4"></video>
+        <div class="info">This is Chapter ${i} of Naruto.</div>
+      `;
 
-  <div class="chapter">
-    <h2>Chapter 5</h2>
-    <video controls src="videos/chapter5.mp4"></video>
-    <div class="info">This is Chapter 5 of Naruto.</div>
-  </div>
-
-  <div class="chapter">
-    <h2>Chapter 6</h2>
-    <video controls src="videos/chapter6.mp4"></video>
-    <div class="info">This is Chapter 6 of Naruto.</div>
-  </div>
-
-  <div class="chapter">
-    <h2>Chapter 7</h2>
-    <video controls src="videos/chapter7.mp4"></video>
-    <div class="info">This is Chapter 7 of Naruto.</div>
-  </div>
-
-  <div class="chapter">
-    <h2>Chapter 8</h2>
-    <video controls src="videos/chapter8.mp4"></video>
-    <div class="info">This is Chapter 8 of Naruto.</div>
-  </div>
-
-  <div class="chapter">
-    <h2>Chapter 9</h2>
-    <video controls src="videos/chapter9.mp4"></video>
-    <div class="info">This is Chapter 9 of Naruto.</div>
-  </div>
-
-  <div class="chapter">
-    <h2>Chapter 10</h2>
-    <video controls src="videos/chapter10.mp4"></video>
-    <div class="info">This is Chapter 10 of Naruto.</div>
-  </div>
-
+      chaptersDiv.appendChild(chapter);
+    }
+  </script>
 </body>
 </html>
