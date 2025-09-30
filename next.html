@@ -1,94 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 1</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 20px;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(120deg, #84fab0, #8fd3f4);
-      text-align: center;
-    }
-    h1 {
-      color: #333;
-      margin-bottom: 20px;
-    }
-    .card {
-      display: inline-block;
-      background: #fff;
-      padding: 20px;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-    }
-    .chapter-img {
-      width: 100%;
-      max-width: 400px;
-      height: 250px;
-      object-fit: cover; /* ✅ image pura fit karega box me */
-      margin-top: 10px;
-      border-radius: 12px;
-      cursor: pointer;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-      display: none;
-    }
-    #animesText {
-      margin-top: 15px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #444;
-      display: none;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naruto Chapters</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg,#fbc2eb,#a6c1ee);
+    margin:0; padding:20px;
+  }
+  h1 { text-align:center; color:#333; }
+  .chapter {
+    background:#fff; margin:15px auto; padding:15px;
+    max-width:600px; border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+    text-align:center;
+  }
+  video { max-width:100%; border-radius:8px; margin-top:10px; }
+  .info { text-align:left; margin-top:8px; background:#f0f0f0; padding:8px; border-radius:6px; }
+</style>
 </head>
 <body>
-  <h1>📖 Chapter 1</h1>
-  <div class="card">
-    <!-- Pehle sirf Add Image option dikhega -->
-    <div id="uploadBox">
-      <input type="file" id="upload" accept="image/*">
-      <button onclick="saveImage()">Add Image</button>
-    </div>
-    <!-- Uploaded Image -->
-    <img id="chapterImg" class="chapter-img" src="" alt="Uploaded Image" onclick="openAnimePage()">
-    <div id="animesText">Animes</div>
+
+<h1>Naruto Chapters</h1>
+
+<!-- Chapter 1 -->
+<div class="chapter">
+  <h2>Chapter 1</h2>
+  <video controls>
+    <source src="https://raw.githubusercontent.com/shard-dev64/Naruto/main/videos/chapter1.mp4" type="video/mp4">
+  </video>
+  <div class="info">
+    <p>Line 1: Naruto's first adventure begins.</p>
+    <p>Line 2: Introduction to the ninja world.</p>
+    <p>Line 3: Naruto meets his friends and foes.</p>
   </div>
+</div>
 
-  <script>
-    function saveImage(){
-      const fileInput = document.getElementById('upload');
-      const file = fileInput.files[0];
-      if(file){
-        const reader = new FileReader();
-        reader.onload = function(e){
-          localStorage.setItem('chapterImage', e.target.result);
-          showImage(e.target.result);
-        }
-        reader.readAsDataURL(file);
-      }
-    }
+<!-- Chapter 2 -->
+<div class="chapter">
+  <h2>Chapter 2</h2>
+  <video controls>
+    <source src="https://raw.githubusercontent.com/shard-dev64/Naruto/main/videos/chapter2.mp4" type="video/mp4">
+  </video>
+  <div class="info">
+    <p>Line 1: Naruto's training intensifies.</p>
+    <p>Line 2: Teamwork with his peers.</p>
+    <p>Line 3: First mission adventure.</p>
+  </div>
+</div>
 
-    function showImage(dataUrl){
-      const img = document.getElementById('chapterImg');
-      img.src = dataUrl;
-      img.style.display = 'block';
-      document.getElementById('animesText').style.display = 'block';
-      document.getElementById('uploadBox').style.display = 'none'; // ✅ add option hat gaya
-    }
+<!-- Chapter 3 -->
+<div class="chapter">
+  <h2>Chapter 3</h2>
+  <video controls>
+    <source src="https://raw.githubusercontent.com/shard-dev64/Naruto/main/videos/chapter3.mp4" type="video/mp4">
+  </video>
+  <div class="info">
+    <p>Line 1: Chapter 3 story line.</p>
+    <p>Line 2: Important events happen.</p>
+    <p>Line 3: Character development.</p>
+  </div>
+</div>
 
-    // Page reload pe check kare
-    window.onload = function(){
-      const dataUrl = localStorage.getItem('chapterImage');
-      if(dataUrl){
-        showImage(dataUrl);
-      }
-    }
+<!-- Repeat same structure for Chapters 4 to 10 -->
+<div class="chapter">
+  <h2>Chapter 4</h2>
+  <video controls>
+    <source src="https://raw.githubusercontent.com/shard-dev64/Naruto/main/videos/chapter4.mp4" type="video/mp4">
+  </video>
+  <div class="info">
+    <p>Line 1: Chapter 4 story line.</p>
+    <p>Line 2: Important events happen.</p>
+    <p>Line 3: Character development.</p>
+  </div>
+</div>
 
-    function openAnimePage(){
-      window.location.href = "anime.html";
-    }
-  </script>
+<div class="chapter">
+  <h2>Chapter 5</h2>
+  <video controls>
+    <source src="https://raw.githubusercontent.com/shard-dev64/Naruto/main/videos/chapter5.mp4" type="video/mp4">
+  </video>
+  <div class="info">
+    <p>Line 1: Chapter 5 story line.</p>
+    <p>Line 2: Important events happen.</p>
+    <p>Line 3: Character development.</p>
+  </div>
+</div>
+
+<div class="chapter">
+  <h2>Chapter 6</h2>
+  <video controls>
+    <source src="https://raw.githubusercontent.com/shard-dev64/Naruto/main/videos/chapter6.mp4" type="video/mp4">
+  </video>
+  <div class="info">
+    <p>Line 1: Chapter 6 story line.</p>
+    <p>Line 2: Important events happen.</p>
+    <p>Line 3: Character development.</p>
+  </div>
+</div>
+
+<div class="chapter">
+  <h2>Chapter 7</h2>
+  <video controls>
+    <source src="https://raw.githubusercontent.com/shard-dev64/Naruto/main/videos/chapter7.mp4" type="video/mp4">
+  </video>
+  <div class="info">
+    <p>Line 1: Chapter 7 story line.</p>
+    <p>Line 2: Important events happen.</p>
+    <p>Line 3: Character development.</p>
+  </div>
+</div>
+
+<div class="chapter">
+  <h2>Chapter 8</h2>
+  <video controls>
+    <source src="https://raw.githubusercontent.com/shard-dev64/Naruto/main/videos/chapter8.mp4" type="video/mp4">
+  </video>
+  <div class="info">
+    <p>Line 1: Chapter 8 story line.</p>
+    <p>Line 2: Important events happen.</p>
+    <p>Line 3: Character development.</p>
+  </div>
+</div>
+
+<div class="chapter">
+  <h2>Chapter 9</h2>
+  <video controls>
+    <source src="https://raw.githubusercontent.com/shard-dev64/Naruto/main/videos/chapter9.mp4" type="video/mp4">
+  </video>
+  <div class="info">
+    <p>Line 1: Chapter 9 story line.</p>
+    <p>Line 2: Important events happen.</p>
+    <p>Line 3: Character development.</p>
+  </div>
+</div>
+
+<div class="chapter">
+  <h2>Chapter 10</h2>
+  <video controls>
+    <source src="https://raw.githubusercontent.com/shard-dev64/Naruto/main/videos/chapter10.mp4" type="video/mp4">
+  </video>
+  <div class="info">
+    <p>Line 1: Chapter 10 story line.</p>
+    <p>Line 2: Important events happen.</p>
+    <p>Line 3: Character development.</p>
+  </div>
+</div>
+
 </body>
 </html>
